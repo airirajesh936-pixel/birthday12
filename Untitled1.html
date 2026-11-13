@@ -1,0 +1,867 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Samdana 🌻</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold:#e7ad37;
+  --cream:#fff9eb;
+  --brown:#71513c;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0;
+  min-height:100vh;
+  font-family:Poppins,sans-serif;
+  color:var(--brown);
+  background:
+    radial-gradient(circle at 20% 20%,#fff0b8,transparent 35%),
+    radial-gradient(circle at 80% 80%,#f8d8d7,transparent 35%),
+    linear-gradient(135deg,#fff9ed,#ffeecb,#fff3e9);
+  overflow-x:hidden;
+}
+
+body::before {
+  content:"";
+  position:fixed;
+  inset:9px;
+  border:2px solid #e8bc65;
+  border-radius:25px;
+  pointer-events:none;
+  z-index:20;
+}
+
+.sunflower-border {
+  position:fixed;
+  z-index:21;
+  top:14px;
+  bottom:14px;
+  left:13px;
+  right:13px;
+  pointer-events:none;
+  display:flex;
+  justify-content:space-between;
+  font-size:23px;
+}
+
+.flower-column {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  animation:flowerFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes flowerFloat {
+  from {transform:translateY(-8px) rotate(-8deg);}
+  to {transform:translateY(8px) rotate(8deg);}
+}
+
+.screen {
+  min-height:100vh;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:55px 25px;
+  position:relative;
+}
+
+.screen.active {
+  display:flex;
+  animation:appear 1s ease;
+}
+
+@keyframes appear {
+  from {opacity:0;transform:translateY(18px);}
+  to {opacity:1;transform:translateY(0);}
+}
+
+.card {
+  width:min(100%,540px);
+  padding:42px 28px;
+  text-align:center;
+  border:1px solid #e9c77d;
+  border-radius:30px;
+  background:#fffdf4ed;
+  backdrop-filter:blur(15px);
+  box-shadow:0 20px 65px #b38a4930;
+  position:relative;
+  z-index:2;
+}
+
+.top-flower {
+  font-size:60px;
+  display:inline-block;
+  animation:flowerTurn 12s linear infinite;
+}
+
+@keyframes flowerTurn {
+  to {transform:rotate(360deg);}
+}
+
+.small-title {
+  color:#b48a42;
+  letter-spacing:4px;
+  font-size:10px;
+  font-weight:600;
+  margin-top:20px;
+}
+
+h1 {
+  font-family:"DM Serif Display",serif;
+  font-size:clamp(35px,8vw,55px);
+  font-weight:normal;
+  color:#94662c;
+  margin:12px 0;
+}
+
+.script {
+  font-family:"Great Vibes",cursive;
+  font-size:38px;
+  color:#d49a4e;
+}
+
+.description {
+  font-size:13px;
+  line-height:2;
+  color:#8c7765;
+  margin:20px 0;
+}
+
+input[type="date"] {
+  width:100%;
+  padding:16px;
+  margin:15px 0;
+  border:1px solid #e8cc91;
+  border-radius:13px;
+  background:#fffaf0;
+  color:#775a39;
+  font-family:inherit;
+  outline:none;
+}
+
+input:focus {
+  border-color:#d5a044;
+  box-shadow:0 0 12px #eacb7a70;
+}
+
+.main-btn {
+  border:none;
+  padding:14px 30px;
+  border-radius:40px;
+  color:white;
+  background:linear-gradient(120deg,#e0a33b,#c98a36);
+  font-family:inherit;
+  font-size:13px;
+  cursor:pointer;
+  box-shadow:0 8px 20px #c18b3c40;
+  transition:.3s;
+}
+
+.main-btn:hover {
+  transform:translateY(-4px);
+  box-shadow:0 12px 25px #c18b3c70;
+}
+
+.error {
+  color:#c45d64;
+  font-size:12px;
+  min-height:22px;
+}
+
+.footer {
+  font-size:10px;
+  color:#b39b79;
+  margin-top:25px;
+  letter-spacing:2px;
+}
+
+/* Floating petals */
+
+.petal {
+  position:fixed;
+  top:-30px;
+  pointer-events:none;
+  z-index:1;
+  animation:falling linear forwards;
+}
+
+@keyframes falling {
+  to {
+    transform:translateY(110vh) rotate(600deg);
+    opacity:.1;
+  }
+}
+
+/* Birthday garden */
+
+.garden {
+  width:min(100%,850px);
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+.garden-card {
+  padding:35px 22px;
+  background:#fffdf0ed;
+  border:1px solid #e6c278;
+  border-radius:28px;
+  box-shadow:0 20px 60px #ae813a25;
+  overflow:hidden;
+}
+
+.garden h1 {
+  font-size:clamp(36px,8vw,58px);
+}
+
+.garden-message {
+  font-size:14px;
+  line-height:2;
+  max-width:600px;
+  margin:20px auto;
+  color:#846b52;
+}
+
+.garden-scene {
+  position:relative;
+  height:230px;
+  margin:20px 0;
+  overflow:hidden;
+  border-radius:20px;
+  background:linear-gradient(#fce6b6,#fff0d1 65%,#d6e5b2);
+}
+
+.sun {
+  position:absolute;
+  top:15px;
+  right:16%;
+  font-size:50px;
+  animation:glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  to {filter:drop-shadow(0 0 20px #ffbd30);}
+}
+
+.cloud {
+  position:absolute;
+  top:30px;
+  left:10%;
+  font-size:36px;
+  animation:cloudMove 15s linear infinite alternate;
+}
+
+@keyframes cloudMove {
+  to {transform:translateX(120px);}
+}
+
+.road {
+  position:absolute;
+  bottom:-85px;
+  left:35%;
+  width:32%;
+  height:230px;
+  background:#d6b58d;
+  border:5px solid #f6e2c2;
+  border-radius:50% 50% 0 0;
+  transform:rotate(-12deg);
+}
+
+.road::after {
+  content:"";
+  position:absolute;
+  left:50%;
+  height:100%;
+  border-left:3px dashed #fff4d9;
+}
+
+.grass {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:45px;
+  background:#b4cb85;
+}
+
+.garden-flowers {
+  position:absolute;
+  bottom:28px;
+  left:0;
+  right:0;
+  display:flex;
+  justify-content:space-around;
+  font-size:35px;
+}
+
+.garden-flowers span {
+  animation:flowerFloat 2.5s ease-in-out infinite alternate;
+}
+
+/* Birthday cake */
+
+.cake {
+  font-size:65px;
+  margin:12px 0;
+  animation:bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  50% {transform:translateY(-10px);}
+}
+
+/* Doraemon-inspired character */
+
+.doraemon {
+  width:94px;
+  height:90px;
+  border-radius:50%;
+  background:#159cda;
+  border:3px solid #126c9c;
+  position:relative;
+  margin:18px auto 8px;
+  animation:bounce 2s ease-in-out infinite;
+  box-shadow:0 7px 15px #247bb044;
+}
+
+.dora-face {
+  position:absolute;
+  background:white;
+  width:76px;
+  height:60px;
+  bottom:4px;
+  left:7px;
+  border-radius:50%;
+}
+
+.eyes {
+  position:absolute;
+  top:5px;
+  left:24px;
+  display:flex;
+  gap:8px;
+}
+
+.eye {
+  height:17px;
+  width:12px;
+  background:white;
+  border:1px solid #333;
+  border-radius:50%;
+}
+
+.eye::after {
+  content:"";
+  display:block;
+  background:#222;
+  width:5px;
+  height:8px;
+  margin:6px auto;
+  border-radius:50%;
+}
+
+.nose {
+  position:absolute;
+  background:#ed354a;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  left:32px;
+  top:19px;
+  border:1px solid #b52c3c;
+}
+
+.whiskers {
+  position:absolute;
+  top:35px;
+  font-size:13px;
+  width:100%;
+  color:#333;
+}
+
+.collar {
+  position:absolute;
+  width:56px;
+  height:5px;
+  background:#e8344c;
+  bottom:-3px;
+  left:19px;
+  border-radius:5px;
+}
+
+.bell {
+  position:absolute;
+  width:14px;
+  height:14px;
+  background:#f8c834;
+  border-radius:50%;
+  bottom:-9px;
+  left:39px;
+  border:1px solid #ad7b0b;
+}
+
+/* Messages */
+
+.message-box {
+  margin:25px auto;
+  padding:25px;
+  border-radius:18px;
+  background:#fff6dc;
+  border:1px dashed #e3bd6e;
+  max-width:620px;
+  min-height:120px;
+  color:#816548;
+  line-height:2;
+  font-size:14px;
+}
+
+.signature {
+  font-family:"Great Vibes",cursive;
+  font-size:35px;
+  color:#c68c42;
+  margin-top:20px;
+}
+
+.hidden {
+  display:none!important;
+}
+
+@media(max-width:480px) {
+  .card {padding:35px 20px;}
+  .garden-card {padding:27px 14px;}
+  .sunflower-border {font-size:18px;}
+  .garden-scene {height:190px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- DECORATIVE SUNFLOWER BORDERS -->
+
+<div class="sunflower-border">
+  <div class="flower-column">
+    🌻 🌼 🌻 🌼 🌻
+  </div>
+  <div class="flower-column">
+    🌼 🌻 🌼 🌻 🌼
+  </div>
+</div>
+
+
+<!-- SCREEN 1: DATE OF BIRTH -->
+
+<section class="screen active" id="entry">
+
+  <div class="card">
+
+    <div class="top-flower">🌻</div>
+
+    <div class="small-title">
+      A LITTLE WORLD OF HAPPINESS
+    </div>
+
+    <h1>Happy Birthday!</h1>
+
+    <div class="script">
+      Something special awaits...
+    </div>
+
+    <p class="description">
+      A little surprise, a little happiness,
+      and a whole lot of beautiful memories.
+      <br>
+      Before entering this little world,
+      tell me your birthday!
+    </p>
+
+    <p style="font-size:13px;">
+      🌼 Enter your date of birth 🌼
+    </p>
+
+    <form id="birthdayForm">
+
+      <input
+        type="date"
+        id="birthDate"
+        required
+      >
+
+      <br>
+
+      <button class="main-btn" type="submit">
+        Unlock My Surprise ✨
+      </button>
+
+    </form>
+
+    <p class="error" id="error"></p>
+
+    <div class="footer">
+      MADE WITH LOVE 🌻
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SCREEN 2: BIRTHDAY CELEBRATION -->
+
+<section class="screen" id="surprise">
+
+  <div class="garden">
+
+    <div class="garden-card">
+
+      <div class="script">
+        A beautiful day for a beautiful soul
+      </div>
+
+      <h1>Happy Birthday!</h1>
+
+      <div class="script" style="font-size:48px;">
+        Samdana Farazuli
+      </div>
+
+      <div class="cake">
+        🎂
+      </div>
+
+      <div style="font-size:20px;">
+        🎈 💛 🎈
+      </div>
+
+      <!-- SUNFLOWER GARDEN -->
+
+      <div class="garden-scene">
+
+        <div class="cloud">☁️</div>
+
+        <div class="sun">☀️</div>
+
+        <div class="road"></div>
+
+        <div class="grass"></div>
+
+        <div class="garden-flowers">
+          <span>🌻</span>
+          <span>🌼</span>
+          <span>🌻</span>
+          <span>🌷</span>
+          <span>🌻</span>
+          <span>🌼</span>
+        </div>
+
+      </div>
+
+      <!-- DORAEMON -->
+
+      <div class="doraemon">
+
+        <div class="dora-face">
+
+          <div class="eyes">
+            <div class="eye"></div>
+            <div class="eye"></div>
+          </div>
+
+          <div class="nose"></div>
+
+          <div class="whiskers">
+            ⌁　⌁
+          </div>
+
+        </div>
+
+        <div class="collar"></div>
+
+        <div class="bell"></div>
+
+      </div>
+
+      <div style="font-size:12px;color:#4d9ac0;">
+        Your little blue friend says hello! 💙
+      </div>
+
+      <p class="garden-message">
+
+        Some people make the world a little brighter
+        just by being in it.
+
+        Today, this little garden blooms especially for you.
+
+        May your life always be filled with sunshine,
+        beautiful memories, endless laughter,
+        and countless reasons to smile.
+
+        <br>
+        Keep shining, beautiful soul! 🌻
+
+      </p>
+
+
+      <!-- PERSONAL MESSAGES -->
+
+      <div class="message-box" id="messageBox">
+
+        <span class="script" style="font-size:30px;">
+          A message just for you...
+        </span>
+
+        <p>
+          There is something more waiting here. 💌
+        </p>
+
+      </div>
+
+      <button
+        class="main-btn"
+        id="messageButton"
+        onclick="showMessage()"
+      >
+        Open Your Special Message 💌
+      </button>
+
+      <div class="signature">
+        With lots of love 🌻
+      </div>
+
+      <div class="footer">
+        A BEAUTIFUL DAY · A BEAUTIFUL SOUL · A BEAUTIFUL FRIENDSHIP
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+// ==========================================
+// PERSONAL SETTINGS - EDIT YOUR INFORMATION
+// ==========================================
+
+const CONFIG = {
+
+  // Her birthday: November 18
+  // Any year will be accepted.
+
+  birthMonth: 11,
+  birthDay: 18,
+
+  // WRITE YOUR PERSONAL MESSAGES HERE
+
+  messages: [
+
+    "Samdana, today is all about celebrating you! 🌻",
+
+    "May your life always be filled with happiness, love and beautiful memories. 💛",
+
+    "Never stop smiling, because your smile makes the world a little brighter. 🌼",
+
+    "Thank you for being such a wonderful friend. 💙",
+
+    "May every dream you carry in your heart come true. Keep shining! ✨",
+
+    "Happy Birthday once again, Samdana! You deserve all the happiness in the world. 🎂💐"
+
+  ]
+
+};
+
+
+// ==========================================
+// BIRTHDAY DATE VERIFICATION
+// ==========================================
+
+const form = document.getElementById("birthdayForm");
+
+form.addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  const enteredDate =
+    document.getElementById("birthDate").value;
+
+  const error =
+    document.getElementById("error");
+
+  if (!enteredDate) {
+    error.textContent = "Please enter your birthday.";
+    return;
+  }
+
+  const date = new Date(enteredDate + "T12:00:00");
+
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  if (
+    month === CONFIG.birthMonth &&
+    day === CONFIG.birthDay
+  ) {
+
+    error.textContent = "";
+
+    document.getElementById("entry")
+      .classList.remove("active");
+
+    document.getElementById("surprise")
+      .classList.add("active");
+
+    createPetals();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  } else {
+
+    error.textContent =
+      "Oops! That's not the correct date. Try again, sunshine! 🌻";
+
+  }
+
+});
+
+
+// ==========================================
+// PERSONAL MESSAGE TYPING ANIMATION
+// ==========================================
+
+let messageIndex = 0;
+let typingTimer = null;
+
+function showMessage() {
+
+  const box =
+    document.getElementById("messageBox");
+
+  const button =
+    document.getElementById("messageButton");
+
+  if (typingTimer) {
+    clearInterval(typingTimer);
+    typingTimer = null;
+  }
+
+  if (messageIndex >= CONFIG.messages.length) {
+
+    box.innerHTML =
+      "<span class='script'>One last thing... 💛</span>" +
+      "<p>You deserve all the happiness in the world. 🌻</p>";
+
+    button.textContent = "Read Again ↻";
+
+    messageIndex = 0;
+
+    return;
+  }
+
+  const message =
+    CONFIG.messages[messageIndex];
+
+  box.innerHTML = "";
+
+  const paragraph =
+    document.createElement("p");
+
+  box.appendChild(paragraph);
+
+  let character = 0;
+
+  typingTimer = setInterval(function() {
+
+    paragraph.textContent +=
+      message.charAt(character);
+
+    character++;
+
+    if (character >= message.length) {
+
+      clearInterval(typingTimer);
+
+      typingTimer = null;
+
+    }
+
+  }, 40);
+
+  messageIndex++;
+
+  button.textContent =
+    messageIndex < CONFIG.messages.length
+      ? "Next Sweet Message 💌"
+      : "One Last Surprise ✨";
+
+}
+
+
+// ==========================================
+// FALLING SUNFLOWER PETALS AND HEARTS
+// ==========================================
+
+let petalsStarted = false;
+
+function createPetals() {
+
+  if (petalsStarted) return;
+
+  petalsStarted = true;
+
+  const symbols = [
+    "🌸",
+    "🌻",
+    "🌼",
+    "💛",
+    "✨",
+    "💕"
+  ];
+
+  setInterval(function() {
+
+    const petal =
+      document.createElement("div");
+
+    petal.className = "petal";
+
+    petal.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    petal.style.left =
+      Math.random() * 100 + "vw";
+
+    petal.style.fontSize =
+      (15 + Math.random() * 18) + "px";
+
+    petal.style.animationDuration =
+      (5 + Math.random() * 6) + "s";
+
+    document.body.appendChild(petal);
+
+    setTimeout(function() {
+      petal.remove();
+    }, 12000);
+
+  }, 450);
+
+}
+
+</script>
+
+</body>
+</html>
